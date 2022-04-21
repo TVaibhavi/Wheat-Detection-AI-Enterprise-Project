@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/f.css') }}">
+    <title>Wheat seed prediction</title>
+</head>
+<body>
+    <div class="container ">
+        <header class="header">
+            <h1 id="title">
+                Predict the Wheat Seed Type
+            </h1>
+            <p id="description">
+             Enter the details of the seed and know it's type(Kama, Roza, Canadian)
+            <img src="https://cdn-icons-png.flaticon.com/512/3662/3662282.png" width="28" height="28">
+            </p>
+        </header>
+        <form action="{{ url_for('predict')}}"method="post">
+
+            <!-- Text section -->
+            <div class="form-group">
+                <input type="text" name="Area" placeholder="Area" required="required" />
+            </div>
+             <div class="form-group">
+                <input type="text" name="Perimeter" placeholder="Perimeter" required="required" />
+            </div>
+            
+            <div class="form-group">
+                <input type="text" name="Compactness" placeholder="Compactness" required="required" />
+            </div>
+            <div class="form-group">
+                <input type="text" name="Kernel-Length" placeholder="Kernel Length" required="required" />
+            </div>
+            <div class="form-group">
+                <input type="text" name="Kernel-Width" placeholder="Kernel Width" required="required" />
+            </div>
+            <div class="form-group">
+                <input type="text" name="Asymmetry-Coefficient" placeholder="Asymmetry Coefficient" required="required" />
+            </div>
+            <div class="form-group">
+                <input type="text" name="Kernel-Groove" placeholder="Kernel Groove" required="required" />
+            </div>
+            <!-- end of text section -->
+
+            <div class="form-group">
+                <button type="submit" id="submit" class="btn">Submit</button>
+            </div>
+            {{ prediction_text }}
+        </form>
+    </div>
+</body>
+</html>
+
